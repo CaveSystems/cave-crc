@@ -1,0 +1,510 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en"><head profile="http://www.w3.org/2005/10/profile">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style type="text/css">
+*.attested, *.attested * {color: black}
+*.confirmed, *.confirmed * {color: black}
+*.academic, *.academic * {color: navy}
+*.third-party, *.third-party * {color: maroon}
+*.unconfirmed, *.unconfirmed * {color: red}
+</style>
+<title>Implemented CRC algorithms</title>
+</head>
+<body>
+
+<h1>Implemented CRC algorithms</h1>
+
+<p>This list is a subset of the <a href="http://reveng.sourceforge.net/crc-catalogue/17plus.htm">Catalogue of parametrised CRC algorithms with 17 or more bits</a></p>
+
+<h3><a name="crc.cat-bits.32"></a><a name="crc.cat.crc-32">CRC-32</a></h3>
+<p class="attested"><code>width=32  poly=0x04c11db7  init=0xffffffff  
+refin=true  refout=true  xorout=0xffffffff  check=0xcbf43926  
+residue=0xdebb20e3  name="CRC-32"</code></p>
+<ul>
+<li>Class: <span class="attested">attested</span></li>
+<li>Alias: <a name="crc.cat.crc-32-adccp"><strong>CRC-32/ADCCP</strong></a>, <a name="crc.cat.pkzip"><strong>PKZIP</strong></a></li>
+<li><a href="https://www.itu.int/rec/T-REC-V.42/en">ITU-T Recommendation V.42</a> (March 2002)
+<ul>
+<li><strong>I</strong> Definition: Residue; full mathematical description (Section 8.1.1.6.2, p.17)</li>
+</ul>
+</li>
+<li>AUTOSAR (3 May 2018), <a href="https://www.autosar.org/standards/classic-platform/classic-platform-431/">AUTOSAR Classic Platform release 4.3.1</a>, <a href="https://www.autosar.org/fileadmin/Releases_TEMP/Classic_Platform_4.3.1/Libraries.zip">Libraries</a> (Zip archive), document <code>Libraries/AUTOSAR_SWS_CRCLibrary.pdf</code>
+<ul>
+<li><strong>I</strong> Comprehensive primer on CRC theory (Section 7.1, pp.17–20)</li>
+<li><strong>I</strong> All parameters (Section 7.2.3.1, p.24)</li>
+<li><strong>IV</strong> 7 codewords (Section 7.2.3.1, p.25)
+<ul>
+<li><code>00000000​1CDF4421</code></li>
+<li><code>F2018377​9DAB24</code></li>
+<li><code>0FAA0055​87B2C9B6</code></li>
+<li><code>00FF5511​1262A032</code></li>
+<li><code>332255AA​BBCCDDEE​FF3D86AE​B0</code></li>
+<li><code>926B559B​A2DE9C</code></li>
+<li><code>FFFFFFFF​FFFFFFFF</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Lasse Collin, Igor Pavlov <dfn>et al.</dfn> (27 August 2009), <a href="https://tukaani.org/xz/xz-file-format.txt">The .xz file format</a>, version 1.0.4
+<ul>
+<li><strong>I</strong> Code: C (Section 6)</li>
+</ul>
+</li>
+<li>PKWARE Inc. (1 February 1993), PKZIP 2.04g
+<ul>
+<li><strong>II</strong> Implementation</li>
+</ul>
+</li>
+<li>Frank J. T. Wojcik, Guy Eric Schalnat, Andreas Dilger, Glenn Randers-Pehrson <dfn>et al.</dfn> (15 October 1999), libpng 1.0.5
+<ul>
+<li><strong>II</strong> Implementation</li>
+</ul>
+</li>
+<li>Lasse Collin, Igor Pavlov <dfn>et al.</dfn> (21 May 2011), XZ Utils 5.0.3
+<ul>
+<li><strong>II</strong> Implementation</li>
+</ul>
+</li>
+<li>Lammert Bies (August 2011), <a href="https://www.lammertbies.nl/comm/info/crc-calculation.html">CRC calculator</a>
+<ul>
+<li><strong>II</strong> Implementation</li>
+</ul>
+</li>
+<li>PVL Team (25 October 2008), CRC .NET control, version 14.0.0.0
+<ul>
+<li><strong>II</strong> Implementation</li>
+</ul>
+</li>
+<li>Dr Ross N. Williams (19 August 1993), <a href="http://www.ross.net/crc/download/crc_v3.txt">"A Painless Guide to CRC Error Detection Algorithms"</a>
+<ul>
+<li><strong>III</strong> All parameters (except Residue)</li>
+</ul>
+</li>
+<li>Emil Lenchak, Texas Instruments, Inc. (November 2004), <a href="https://www.ti.com/lit/an/slaa221/slaa221.pdf">CRC Implementation With MSP430</a>
+<ul>
+<li><strong>III</strong> All parameters (except Residue) (Section 4.6, p.6)</li>
+</ul>
+</li>
+<li>Berndt M. Gammel (29 October 2006), <a href="http://www.matpack.de/">Matpack 1.9.1</a> class <code>MpCRC</code> documentation
+<ul>
+<li><strong>III</strong> All parameters (except Residue)</li>
+</ul>
+</li>
+<li>Cisco Systems (September 2013), <a href="https://meraki.cisco.com/lib/pdf/meraki_whitepaper_air_marshal.pdf">Meraki Air Marshal white paper</a>
+<ul>
+<li><strong>IV</strong> 1 codeword (p.9)
+<ul>
+<li><code>C0083000​28CFE952​1D3B08EA​449900E8​08EA4499​00E83001​02007E64​9416</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Ryan Luecke, James Lyons (11 October 2011), <a href="https://blog.box.com/blog/crc32-checksums-the-good-the-bad-and-the-ugly/">CRC32 Checksums; The Good, The Bad, And The Ugly</a>
+<ul>
+<li><strong>IV</strong> 1 codeword
+<ul>
+<li><code>6173640A​CEDE2D15</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Unique effective solution of codeword set</li>
+<li>Created: 30 March 2005</li>
+<li>Updated: 5 June 2018</li>
+</ul>
+
+<h3><a name="crc.cat.crc-32-autosar">CRC-32/AUTOSAR</a></h3>
+<p class="attested"><code>width=32  poly=0xf4acfb13  init=0xffffffff  
+refin=true  refout=true  xorout=0xffffffff  check=0x1697d06a  
+residue=0x904cddbf  name="CRC-32/AUTOSAR"</code></p>
+<ul>
+<li>Class: <span class="attested">attested</span></li>
+<li>AUTOSAR (3 May 2018), <a href="https://www.autosar.org/standards/classic-platform/classic-platform-431/">AUTOSAR Classic Platform release 4.3.1</a>, <a href="https://www.autosar.org/fileadmin/Releases_TEMP/Classic_Platform_4.3.1/Libraries.zip">Libraries</a> (Zip archive), document <code>Libraries/AUTOSAR_SWS_CRCLibrary.pdf</code>
+<ul>
+<li><strong>I</strong> Comprehensive primer on CRC theory (Section 7.1, pp.17–20)</li>
+<li><strong>I</strong> All parameters (Section 7.2.3.2, p.25)</li>
+<li><strong>IV</strong> 7 codewords (Section 7.2.3.2, p.26)
+<ul>
+<li><code>00000000​4022B36F</code></li>
+<li><code>F2018325​1A724F</code></li>
+<li><code>0FAA0055​F82D6620</code></li>
+<li><code>00FF5511​6E99D79B</code></li>
+<li><code>332255AA​BBCCDDEE​FF3D345A​A6</code></li>
+<li><code>926B5578​8A68EE</code></li>
+<li><code>FFFFFFFF​FFFFFFFF</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Unique effective solution of codeword set</li>
+<li>Created: 24 July 2016</li>
+<li>Updated: 5 June 2018</li>
+</ul>
+
+<h3><a name="crc.cat.crc-32-bzip2">CRC-32/BZIP2</a></h3>
+<p class="attested"><code>width=32  poly=0x04c11db7  init=0xffffffff  
+refin=false  refout=false  xorout=0xffffffff  check=0xfc891918  
+residue=0xc704dd7b  name="CRC-32/BZIP2"</code></p>
+<ul>
+<li>Class: <span class="attested">attested</span></li>
+<li>Alias: <a name="crc.cat.crc-32-aal5"><strong>CRC-32/AAL5</strong></a>, <a name="crc.cat.crc-32-dect-b"><strong>CRC-32/DECT-B</strong></a>, <a name="crc.cat.b-crc-32"><strong>B-CRC-32</strong></a>
+</li><li>Used in DECT B-fields.
+</li><li>Black's example AAL5 cells, with bytes <code>00 00 00 28</code> inserted between the described data fields and their CRCs, equal the examples in I.363.5.</li>
+<li><a href="https://www.itu.int/rec/T-REC-I.363.5/en">ITU-T Recommendation I.363.5</a> (August 1996)
+<ul>
+<li><strong>I</strong> Definition: Residue; full mathematical description (Section 9.2.1.2 (f), p.12)</li>
+<li><strong>IV</strong> 3 codewords (Appendix I, p.39)
+<ul>
+<li><code>00000000​00000000​00000000​00000000​00000000​00000000​00000000​00000000​00000000​00000000​00000028​864D7F99</code></li>
+<li><code>FFFFFFFF​FFFFFFFF​FFFFFFFF​FFFFFFFF​FFFFFFFF​FFFFFFFF​FFFFFFFF​FFFFFFFF​FFFFFFFF​FFFFFFFF​00000028​C55E457A</code></li>
+<li><code>01020304​05060708​090A0B0C​0D0E0F10​11121314​15161718​191A1B1C​1D1E1F20​21222324​25262728​00000028​BF671ED0</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>ETSI <a href="https://www.etsi.org/deliver/etsi_en/300100_300199/30017503/02.05.01_60/en_30017503v020501p.pdf">EN 300 175-3</a> version 2.5.1 (August 2013)
+<ul>
+<li><strong>I</strong> Definition: Residue; full mathematical description (Section 6.2.5.5, p.102)</li>
+</ul>
+</li>
+<li>Julian Seward (4 September 1999), bzip2 0.9.5d
+<ul>
+<li><strong>II</strong> Implementation</li>
+</ul>
+</li>
+<li>PVL Team (25 October 2008), CRC .NET control, version 14.0.0.0
+<ul>
+<li><strong>II</strong> Implementation</li>
+</ul>
+</li>
+<li>Emil Lenchak, Texas Instruments, Inc. (November 2004), <a href="https://www.ti.com/lit/an/slaa221/slaa221.pdf">CRC Implementation With MSP430</a>
+<ul>
+<li><strong>III</strong> All parameters (except Residue) (Section 4.6, p.6)</li>
+</ul>
+</li>
+<li>Richard Black (18 February 1994), <a href="https://www.cl.cam.ac.uk/research/srg/bluebook/21/crc/node6.html">Fast CRC32 in Software: Software Implementations</a>
+<ul>
+<li><strong>III</strong> Code: C</li>
+</ul>
+</li>
+<li>Richard Black (18 February 1994), <a href="https://www.cl.cam.ac.uk/research/srg/bluebook/21/crc/node4.html">Fast CRC32 in Software: Some Examples</a>
+<ul>
+<li><strong>IV</strong> 3 codewords (same as in I.363.5)</li>
+</ul>
+</li>
+<li>Angie Tso, Telecommunications Techniques Corp. (24 October 1994), <a href="https://web.archive.org/web/20061009235306/http://cell-relay.indiana.edu/cell-relay/publications/software/CRC/32bitCRC.testcases.html">Cell Relay mailing list post</a> (courtesy of the Internet Archive)
+<ul>
+<li><strong>IV</strong> 4 codewords (first three same as in I.363.5)
+<ul>
+<li><code>01020304​05060708​090A0B0C​0D0E0F10​11121314​15161718​191A1B1C​1D1E1F20​21222324​25262728​11220028​ACBA602A</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Ryan Luecke, James Lyons (11 October 2011), <a href="https://blog.box.com/blog/crc32-checksums-the-good-the-bad-and-the-ugly/">CRC32 Checksums; The Good, The Bad, And The Ugly</a>
+<ul>
+<li><strong>IV</strong> 1 codeword
+<ul>
+<li><code>6173640A​86FA4F5B</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Unique effective solution of codeword set</li>
+<li>Created: 8 October 2008</li>
+<li>Updated: 15 February 2017</li>
+</ul>
+
+<h3><a name="crc.cat.crc-32c">CRC-32C</a></h3>
+<p class="attested"><code>width=32  poly=0x1edc6f41  init=0xffffffff  
+refin=true  refout=true  xorout=0xffffffff  check=0xe3069283  
+residue=0xb798b438  name="CRC-32C"</code></p>
+<!-- R -->
+<ul>
+<li>Class: <span class="attested">attested</span></li>
+<li>Alias: <a name="crc.cat.crc-32-iscsi"><strong>CRC-32/ISCSI</strong></a>, <a name="crc.cat.crc-32-castagnoli"><strong>CRC-32/CASTAGNOLI</strong></a>, <a name="crc.cat.crc-32-interlaken"><strong>CRC-32/INTERLAKEN</strong></a></li>
+<li><a href="https://tools.ietf.org/html/rfc7143">IETF RFC 7143</a> (April 2014)
+<ul>
+<li><strong>I</strong> Full definition (except Check) (Section 13.1, pp.230–1)</li>
+</ul>
+</li>
+<li>The Interlaken Alliance (7 October 2008), <a href="http://www.interlakenalliance.com/Interlaken_Protocol_Definition_v1.2.pdf">Interlaken Protocol Definition</a>, version 1.2
+<ul>
+<li><strong>I</strong> Definition: Width, Poly (Section 5.4.6, p.33)</li>
+<li><strong>I</strong> Definition: Init, RefIn, RefOut, XorOut (Appendix B, p.48)</li>
+</ul>
+</li>
+<li>Dipl. Inf. Johann F. Löfflmann (30 July 2006), Jacksum 1.7.0
+<ul>
+<li><strong>II</strong> Implementation</li>
+</ul>
+</li>
+<li>Greg Cook (11 February 2014), <a href="http://regregex.bbcmicro.net/#prog.base91">Base91</a> level 1 version 2.50
+<ul>
+<li><strong>II</strong> Implementation</li>
+<li><strong>III</strong> Full mathematical description</li>
+<li><strong>III</strong> All parameters (except Residue)</li>
+<li><strong>III</strong> Code: C</li>
+</ul>
+</li>
+<li>Mark Bakke, Julian Satran, Venkat Rangan (May–June 2001), <a href="http://www.pdl.cmu.edu/mailinglists/ips/mail/msg04970.html">IP Storage Mailing List thread</a>
+<ul>
+<li><strong>III</strong> All parameters (except Residue) (Bakke, Rangan)</li>
+<li><strong>III</strong> Definition: Width, Poly, Init, XorOut (Satran)</li>
+<li><strong>III</strong> Code: C (Rangan)</li>
+<li><strong>IV</strong> 3 codewords (Bakke)
+<ul>
+<li><code>00000000​00000000​00000000​00000000​00000000​00000000​00000000​00000000​AA36918A</code></li>
+<li><code>FFFFFFFF​FFFFFFFF​FFFFFFFF​FFFFFFFF​FFFFFFFF​FFFFFFFF​FFFFFFFF​FFFFFFFF​43ABA862</code></li>
+<li><code>00010203​04050607​08090A0B​0C0D0E0F​10111213​14151617​18191A1B​1C1D1E1F​4E79DD46</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Created: 10 September 2005</li>
+<li>Updated: 6 February 2017</li>
+</ul>
+
+<h3><a name="crc.cat.crc-32d">CRC-32D</a></h3>
+<p class="confirmed"><code>width=32  poly=0xa833982b  init=0xffffffff  
+refin=true  refout=true  xorout=0xffffffff  check=0x87315576  
+residue=0x45270551  name="CRC-32D"</code></p>
+<!-- R -->
+<ul>
+<li>Class: <span class="confirmed">confirmed</span></li>
+<li>Greg Cook (11 February 2014), <a href="http://regregex.bbcmicro.net/#prog.base91">Base91</a> level 1 version 2.50
+<ul>
+<li><strong>II</strong> Implementation</li>
+<li><strong>III</strong> Full mathematical description</li>
+<li><strong>III</strong> All parameters (except Residue)</li>
+<li><strong>III</strong> Code: C</li>
+</ul>
+</li>
+<li>Prof. Philip Koopman (July 2002), <a href="https://users.ece.cmu.edu/~koopman/networks/dsn02/dsn02_koopman.pdf">"32-Bit Cyclic Redundancy Codes for Internet Applications"</a>, Proceedings of The International Conference on Dependable Systems and Networks
+<ul>
+<li><strong>III</strong> Polynomial discovered by Castagnoli; properties confirmed by Koopman</li>
+</ul>
+</li>
+<li>Created: 28 November 2008</li>
+<li>Updated: 6 February 2017</li>
+</ul>
+
+<h3><a name="crc.cat.crc-32-mpeg-2">CRC-32/MPEG-2</a></h3>
+<p class="attested"><code>width=32  poly=0x04c11db7  init=0xffffffff  
+refin=false  refout=false  xorout=0x00000000  check=0x0376e6e7  
+residue=0x00000000  name="CRC-32/MPEG-2"</code></p>
+<ul>
+<li>Class: <span class="attested">attested</span></li>
+<li>ISO/IEC 13818-1:2000 — ITU-T Recommendation H.222.0 (February 2000)
+<ul>
+<li><strong>I</strong> Definition: Width, Poly, Init, RefIn, RefOut, Residue (Annex A, p.97)</li>
+<li><strong>I</strong> CRC checking algorithm (Annex A, p.97)</li>
+<li><strong>I</strong> Partial shift register diagram (Annex A, p.97)</li>
+</ul>
+</li>
+<li>Dipl. Inf. Johann F. Löfflmann (30 July 2006), Jacksum 1.7.0
+<ul>
+<li><strong>II</strong> Implementation</li>
+</ul>
+</li>
+<li>VideoLAN Organization (27 May 2018), <a href="https://www.videolan.org/vlc/">VLC 3.0.3</a> module <a href="https://www.videolan.org/developers/vlc/modules/mux/mpeg/ps.c"><code>vlc-3.0.3/modules/mux/mpeg/ps.c</code></a>
+<ul>
+<li><strong>III</strong> Code: C</li>
+</ul>
+</li>
+<li>Created: 8 October 2008</li>
+<li>Updated: 6 June 2018</li>
+</ul>
+
+<h3><a name="crc.cat.crc-32-posix">CRC-32/POSIX</a></h3>
+<p class="attested"><code>width=32  poly=0x04c11db7  init=0x00000000  
+refin=false  refout=false  xorout=0xffffffff  check=0x765e7680  
+residue=0xc704dd7b  name="CRC-32/POSIX"</code></p>
+<!-- R -->
+<ul>
+<li>Class: <span class="attested">attested</span></li>
+<li>Alias: <a name="crc.cat.cksum"><strong>CKSUM</strong></a></li>
+<li>The <code>cksum</code> program processes a representation of the input stream length following the input.  It returns <code>930766865</code> (<code>0x377A6011</code>) on the check string, processed internally as <code>31 32 33 34 35 36 37 38 39 09</code>.  See the definition for details.</li>
+<li>The Open Group (1997), Single Unix Specification, version 2, Commands &amp; Utilities Issue 5, Reference Pages: <a href="http://pubs.opengroup.org/onlinepubs/7990989775/xcu/cksum.html">cksum</a>
+<ul>
+<li><strong>I</strong> Full definition (except Check)</li>
+</ul>
+</li>
+<li>Q. Frank Xia (December 1999), GNU cksum 2.0a
+<ul>
+<li><strong>II</strong> Implementation</li>
+</ul>
+</li>
+<li>Michael Niedermayer (20 April 2018), <a href="https://ffmpeg.org/releases/ffmpeg-4.0.tar.bz2">FFmpeg 4.0</a> (bzip2 compressed tarfile), module <a href="https://github.com/FFmpeg/FFmpeg/blob/master/libavutil/tests/crc.c"><code>ffmpeg-4.0/libavutil/tests/crc.c</code></a>
+<ul>
+<li><strong>IV</strong> 1 codeword (before XorOut stage)
+<ul>
+<li>1999 bytes (<code>i+i*i</code>) plus <code>3F0A451F</code> (source: plus <code>C0F5BAE0</code>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Created: 30 March 2005</li>
+<li>Updated: 5 June 2018</li>
+</ul>
+
+<h3><a name="crc.cat.crc-32q">CRC-32Q</a></h3>
+<p class="attested"><code>width=32  poly=0x814141ab  init=0x00000000  
+refin=false  refout=false  xorout=0x00000000  check=0x3010bf7f  
+residue=0x00000000  name="CRC-32Q"</code></p>
+<ul>
+<li>Class: <span class="attested">attested</span></li>
+<li>Used for aeronautical data.  Recognised by the ICAO.</li>
+<li>EUROCONTROL (20 March 2006), <a href="https://www.eurocontrol.int/sites/default/files/service/content/documents/information-management/20060320-aixm-primer.pdf">AIXM Primer 4.5</a>
+<ul>
+<li><strong>I</strong> Definition: Width, Poly, Init, XorOut, RefIn (Section 6.2, pp.23–5)</li>
+<li><strong>I</strong> Flowchart (p.24)</li>
+<li><strong>I</strong> Code: Java (Appendix B, pp.41–5)</li>
+<li><strong>IV</strong> 8 codewords (Table 6.1, p.25)
+<ul>
+<li><code>34383036​33374EA5​A7C704</code></li>
+<li><code>30313633​34313145​A1AE5741</code></li>
+<li><code>34383036​33374E30​31363334​313145A1​BA30EE</code></li>
+<li><code>3738326C​297100</code></li>
+<li><code>34383036​33374E30​31363334​31314537​38326A25​9F4E</code></li>
+<li><code>34362E37​266D25C1</code></li>
+<li><code>34383036​33374E30​31363334​31314534​362E372F​866D6D</code></li>
+<li><code>34383036​33374E30​31363334​31314537​38323436​2E375E5D​C940</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Created: 29 April 2009</li>
+<li>Updated: 6 February 2017</li>
+</ul>
+
+<h3><a name="crc.cat-bits.64"></a><a name="crc.cat.crc-64">CRC-64</a></h3>
+<p class="academic"><code>width=64  poly=0x42f0e1eba9ea3693  
+init=0x0000000000000000  refin=false  refout=false  
+xorout=0x0000000000000000  check=0x6c40df5f0b497347  
+residue=0x0000000000000000  name="CRC-64"</code></p>
+<ul>
+<li>Class: <span class="academic">academic</span></li>
+<li>Alias: <a name="crc.cat.crc-64-ecma-182"><strong>CRC-64/ECMA-182</strong></a>
+</li><li>Used in DLT-1 tape cartridges.  For the algorithm often misidentified as ECMA, see <a href="#crc.cat.crc-64-xz">XZ</a>.</li>
+<li><a href="https://www.ecma-international.org/publications/files/ECMA-ST/Ecma-182.pdf">ECMA standard ECMA-182</a> (December 1992) — ISO/IEC 13421:1993
+<ul>
+<li><strong>I</strong> Full mathematical description (Annex B, p.51)</li>
+</ul>
+</li>
+<li>Created: 6 April 2009</li>
+<li>Updated: 5 September 2017</li>
+</ul>
+
+<h3><a name="crc.cat.crc-64-we">CRC-64/WE</a></h3>
+<p class="confirmed"><code>width=64  poly=0x42f0e1eba9ea3693  
+init=0xffffffffffffffff  refin=false  refout=false  
+xorout=0xffffffffffffffff  check=0x62ec59e3f1a4f00a  
+residue=0xfcacbebd5931a992  name="CRC-64/WE"</code></p>
+<!-- R -->
+<ul>
+<li>Class: <span class="confirmed">confirmed</span></li>
+<li>Wolfgang Ehrhardt (27 March 2012), <a href="http://www.wolfgang-ehrhardt.de/crchash_en.html">CRC/Hash plugin for FAR Manager</a>
+<ul>
+<li><strong>II</strong> Implementation</li>
+</ul>
+</li>
+<li>Created: 8 November 2009</li>
+<li>Updated: 6 February 2017</li>
+</ul>
+
+<h3><a name="crc.cat.crc-64-xz">CRC-64/XZ</a></h3>
+<p class="attested"><code>width=64  poly=0x42f0e1eba9ea3693  
+init=0xffffffffffffffff  refin=true  refout=true  
+xorout=0xffffffffffffffff  check=0x995dc9bbdf1939fa  
+residue=0x49958c9abd7d353f  name="CRC-64/XZ"</code></p>
+<ul>
+<li>Class: <span class="attested">attested</span></li>
+<li>Alias: <a name="crc.cat.crc-64-go-ecma"><strong>CRC-64/GO-ECMA</strong></a></li>
+<li>An algorithm commonly misidentified as ECMA.  For the true ECMA algorithm see <a href="#crc.cat.crc-64">CRC-64</a>.</li>
+<li>Go implementation reference contributed by "freetrader".</li>
+<li>AUTOSAR (3 May 2018), <a href="https://www.autosar.org/standards/classic-platform/classic-platform-431/">AUTOSAR Classic Platform release 4.3.1</a>, <a href="https://www.autosar.org/fileadmin/Releases_TEMP/Classic_Platform_4.3.1/Libraries.zip">Libraries</a> (Zip archive), document <code>Libraries/AUTOSAR_SWS_CRCLibrary.pdf</code>
+<ul>
+<li><strong>I</strong> Comprehensive primer on CRC theory (Section 7.1, pp.17–20)</li>
+<li><strong>I</strong> All parameters (Section 7.2.4.1, p.26)</li>
+<li><strong>IV</strong> 7 codewords (Section 7.2.4.1, p.27)
+<ul>
+<li><code>00000000​4B9F1B1E​3586A5F4</code></li>
+<li><code>F20183C6​F1648166​279C31</code></li>
+<li><code>0FAA0055​75157C66​F7D0C554</code></li>
+<li><code>00FF5511​E604077E​BE2238A6</code></li>
+<li><code>332255AA​BBCCDDEE​FFD5E5A8​19B2CE1E​70</code></li>
+<li><code>926B554E​3E9FB5A9​96AA5F</code></li>
+<li><code>FFFFFFFF​00000000​FFFFFFFF</code></li>
+</ul>
+</li>
+</ul>
+</li><li>Lasse Collin, Igor Pavlov <dfn>et al.</dfn> (27 August 2009), <a href="https://tukaani.org/xz/xz-file-format.txt">The .xz file format</a>, version 1.0.4
+<ul>
+<li><strong>I</strong> Code: C (Section 6)</li>
+</ul>
+</li>
+<li>Lasse Collin, Igor Pavlov <dfn>et al.</dfn> (21 May 2011), XZ Utils 5.0.3
+<ul>
+<li><strong>II</strong> Implementation</li>
+</ul>
+</li>
+<li><a href="https://golang.org/AUTHORS">The Go Authors</a>, <a href="https://golang.org/">The Go Programming Language</a>, package <a href="https://golang.org/pkg/hash/crc64/"><code>crc64</code></a>
+<ul>
+<li><strong>II</strong> Implementation (using constant <code>crc64.ECMA</code>)</li>
+</ul>
+</li>
+<li><a href="https://golang.org/AUTHORS">The Go Authors</a> (26 January 2017), The Go Programming Language, module <a href="https://golang.org/src/hash/crc64/crc64.go"><code>src/hash/crc64/crc64.go</code></a>
+<ul>
+<li><strong>III</strong> Code: Go</li>
+</ul>
+</li>
+<li><a href="https://golang.org/AUTHORS">The Go Authors</a> (26 January 2017), The Go Programming Language, module <a href="https://golang.org/src/hash/crc64/crc64_test.go"><code>src/hash/crc64/crc64_test.go</code></a>
+<ul>
+<li><strong>IV</strong> 32 codewords (selection)
+<ul>
+<li><code>00000000​00000000</code></li>
+<li><code>61052B65​2E778402​33</code></li>
+<li><code>616246B0​840E2073​65BC</code></li>
+<li><code>61626327​76271A4A​09D82C</code></li>
+<li><code>61626364​BA60596E​59289D3C</code></li>
+<li><code>61626364​65F29508​FB58DF0B​04</code></li>
+<li><code>61626364​6566F400​A745859F​8ED0</code></li>
+<li><code>61626364​65666766​0E71CCA8​A320EC</code></li>
+<li><code>61626364​65666768​590C7A64​0AF3B467</code></li>
+<li><code>61626364​65666768​698EEF56​9DC8F666​99</code></li>
+<li><code>61626364​65666768​696AF473​57CD2E3A​0932</code></li>
+<li><code>4E657061​6C207072​656D6965​7220776F​6E277420​72657369​676E2E41​5A746AB1​F20E79</code></li>
+<li><code>73697A65​3A202061​2E6F7574​3A202062​6164206D​61676963​4D3AD6D8​6CE4B5E3</code></li>
+<li><code>54686520​6D616A6F​72207072​6F626C65​6D206973​20776974​68207365​6E646D61​696C2E20​202D4D61​726B2048​6F72746F​6E51A0F2​946BAF5A​86</code></li>
+<li><code>54686973​20697320​61207465​7374206F​66207468​6520656D​65726765​6E637920​62726F61​64636173​74207379​7374656D​2E72BC5B​C17F18DB​27</code></li>
+</ul>
+</li></ul>
+</li>
+<li>Unique effective solution of codeword set (unverified)</li>
+<li>Created: 4 July 2011</li>
+<li>Updated: 5 June 2018</li>
+</ul>
+
+<h2><a name="disclaimer">Disclaimer</a></h2>
+
+<p>Every effort has been made to ensure accuracy, however there may be
+occasional errors or omissions.  All trademarks and registered trademarks
+are the intellectual property of their respective owners.  The code and
+documentation included in this document are supplied without warranty,
+not even the implied warranties of merchantability or fitness for a
+particular purpose.  In no event shall the author or his suppliers be
+liable for any loss, damage, injury or death, of any nature and
+howsoever caused, arising from the use of, or failure, inability or
+unwillingness to use, this software or documentation.</p>
+
+<hr>
+
+<address>
+This list is a subset of the <a href="http://reveng.sourceforge.net/crc-catalogue/17plus.htm">Catalogue of parametrised CRC algorithms with 17 or more bits</a>
+<br> by Greg Cook <br>
+Last updated 25 July 2018<br>
+Links last verified 5 June 2018
+</address>
+
+</body></html>
