@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>netstandard1.0;netstandard1.3;netstandard2.0;netcoreapp1.0;netcoreapp2.0;net20;net35;net45;net46;net47</TargetFrameworks>
+    <TargetFrameworks>netstandard1.3;netstandard2.0;netcoreapp1.0;netcoreapp2.0;net20;net35;net45;net46;net47</TargetFrameworks>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <Authors>Andreas Rohleder</Authors>
@@ -10,17 +10,17 @@
     <PackageLicenseUrl>https://www.gnu.org/licenses/lgpl-3.0.en.html</PackageLicenseUrl>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>cave-crc.snk</AssemblyOriginatorKeyFile>
-    <Version>1.0.0-alpha-$(Configuration.ToLower())-1</Version>
+    <Version>1.0.0-alpha-$(Configuration.ToLower())-2</Version>
     <PackageIconUrl>https://www.cavesystems.de/favicon.ico</PackageIconUrl>
-	  <PackageTags>CaveSystems CRC CRC16Managed CRC32Managed CRC64Managed</PackageTags>
+    <PackageTags>CaveSystems CRC CRC16Managed CRC32Managed CRC64Managed</PackageTags>
     <PackageProjectUrl>https://www.cavesystems.de</PackageProjectUrl>
     <PackageReleaseNotes>Aktueller Release Candidate 2018</PackageReleaseNotes>
     <Description>Provides functions for calculating cyclic redundancy check sums in 16, 32 and 64bit</Description>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <AssemblyVersion>1.0.0.1</AssemblyVersion>
-    <FileVersion>2018.1113.1337.1337</FileVersion>
+    <AssemblyVersion>1.0.0.2</AssemblyVersion>
+    <FileVersion>2018.1212.1852.1122</FileVersion>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
