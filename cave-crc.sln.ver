@@ -1,10 +1,10 @@
 [Version]
-AddConfig = True
+AddConfig = False
 Major = 1
 Minor = 0
 Patch = 0
-Pre = 2
-Meta = alpha
+Pre = -1
+Meta = 
 Type = 0
-Full = 1.0.0-alpha-2
+Full = 1.0.0
 

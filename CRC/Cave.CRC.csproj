@@ -10,7 +10,7 @@
     <PackageLicenseUrl>https://www.gnu.org/licenses/lgpl-3.0.en.html</PackageLicenseUrl>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>cave-crc.snk</AssemblyOriginatorKeyFile>
-    <Version>1.0.0-alpha-$(Configuration.ToLower())-2</Version>
+    <Version>1.0.0</Version>
     <PackageIconUrl>https://www.cavesystems.de/favicon.ico</PackageIconUrl>
     <PackageTags>CaveSystems CRC CRC16Managed CRC32Managed CRC64Managed</PackageTags>
     <PackageProjectUrl>https://www.cavesystems.de</PackageProjectUrl>
@@ -19,8 +19,8 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <AssemblyVersion>1.0.0.2</AssemblyVersion>
-    <FileVersion>2018.1212.1852.1122</FileVersion>
+    <AssemblyVersion>1.0.0</AssemblyVersion>
+    <FileVersion>2018.1214.1909.1065</FileVersion>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
