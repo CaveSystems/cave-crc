@@ -50,16 +50,20 @@ using System.Security.Cryptography;
 namespace Cave
 {
     /// <summary>
-    /// Implements a fast implementation of the CRC-CCITT-16 algorithm for the polynomial 0x1021
+    /// Implements a fast implementation of the CRC-CCITT-16 algorithm for the polynomial 0x1021.
     /// </summary>
     public class CRCCCITT16 : HashAlgorithm, IChecksum<ushort>
     {
         uint crc = ushort.MaxValue;
 
         /// <summary>
-        /// Returns the checksum computed so far.
+        /// Gets or sets the checksum computed so far.
         /// </summary>
-        public ushort Value => (ushort)(crc & 0xFFFF);
+        public ushort Value
+        {
+            get => (ushort)(crc & 0xFFFF);
+            set => crc = value;
+        }
 
         /// <summary>
         /// Gets the size, in bits, of the computed hash code.
@@ -72,7 +76,7 @@ namespace Cave
         public override void Initialize() => crc = ushort.MaxValue;
 
         /// <summary>
-        /// Resets the checksum to initialization state
+        /// Resets the checksum to initialization state.
         /// </summary>
         public void Reset() => Initialize();
 
@@ -88,10 +92,10 @@ namespace Cave
         }
 
         /// <summary>Updates the checksum with the specified byte array.</summary>
-        /// <param name="buffer">buffer an array of bytes</param>
+        /// <param name="buffer">buffer an array of bytes.</param>
         public void Update(byte[] buffer)
         {
-            for(int i = 0; i < buffer.Length; i++)
+            for (int i = 0; i < buffer.Length; i++)
             {
                 uint x = crc >> 8;
                 x ^= buffer[i];
@@ -101,8 +105,8 @@ namespace Cave
         }
 
         /// <summary>Updates the checksum with the specified byte array.</summary>
-        /// <param name="buffer">The buffer containing the data</param>
-        /// <param name="offset">The offset in the buffer where the data starts</param>
+        /// <param name="buffer">The buffer containing the data.</param>
+        /// <param name="offset">The offset in the buffer where the data starts.</param>
         /// <param name="count">the number of data bytes to add.</param>
         public void Update(byte[] buffer, int offset, int count)
         {
@@ -139,8 +143,10 @@ namespace Cave
         /// Gets the value of the computed hash code.
         /// </summary>
 #if !NETSTANDARD13 && !NETCOREAPP10
-        override
-#endif
+        public override byte[] Hash => BitConverter.GetBytes(Value);
+#else
         public byte[] Hash => BitConverter.GetBytes(Value);
+#endif
+
     }
 }

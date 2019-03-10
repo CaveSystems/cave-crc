@@ -6,37 +6,44 @@ using System.Text;
 namespace Cave
 {
     /// <summary>
-    /// Provides thread safe hashing
+    /// Provides thread safe hashing.
     /// </summary>
     public static class Hash
     {
         /// <summary>
-        /// Available hash types
+        /// Available hash types.
         /// </summary>
         public enum Type
         {
             /// <summary>The none</summary>
             None,
+
             /// <summary>The crc32 hash algorithm</summary>
             CRC32,
+
             /// <summary>The crc64 hash algorithm</summary>
             CRC64,
+
             /// <summary>The md5 hash algorithm</summary>
             MD5,
+
             /// <summary>The sha1 hash algorithm</summary>
             SHA1,
+
             /// <summary>The sha256 hash algorithm</summary>
             SHA256,
+
             /// <summary>The sha384 hash algorithm</summary>
             SHA384,
+
             /// <summary>The sha512 hash algorithm</summary>
             SHA512,
         }
 
         /// <summary>Creates a hash of the specified type.</summary>
         /// <param name="type">The type.</param>
-        /// <returns>Returns a new HashAlgorithm instance</returns>
-        /// <exception cref="System.NotImplementedException"></exception>
+        /// <returns>Returns a new HashAlgorithm instance.</returns>
+        /// <exception cref="NotImplementedException"></exception>
         public static HashAlgorithm Create(Type type)
         {
             switch (type)
@@ -52,11 +59,11 @@ namespace Cave
             }
         }
 
-        /// <summary>Obtains the hash code for a specified data array</summary>
+        /// <summary>Obtains the hash code for a specified data array.</summary>
         /// <param name="type">The type.</param>
-        /// <param name="data">The bytes to hash</param>
-        /// <returns>A new byte[] containing the hash for the specified data</returns>
-        /// <exception cref="System.ArgumentNullException">data</exception>
+        /// <param name="data">The bytes to hash.</param>
+        /// <returns>A new byte[] containing the hash for the specified data.</returns>
+        /// <exception cref="ArgumentNullException">data.</exception>
         public static byte[] FromArray(Type type, byte[] data)
         {
             if (data == null)
@@ -71,13 +78,13 @@ namespace Cave
             }
         }
 
-        /// <summary>Obtains the hash code for a specified data array</summary>
+        /// <summary>Obtains the hash code for a specified data array.</summary>
         /// <param name="type">The type.</param>
-        /// <param name="data">The byte array to hash</param>
-        /// <param name="index">The start index</param>
-        /// <param name="count">The number of bytes to hash</param>
-        /// <returns>A new byte[] containing the hash for the specified data</returns>
-        /// <exception cref="System.ArgumentNullException">data</exception>
+        /// <param name="data">The byte array to hash.</param>
+        /// <param name="index">The start index.</param>
+        /// <param name="count">The number of bytes to hash.</param>
+        /// <returns>A new byte[] containing the hash for the specified data.</returns>
+        /// <exception cref="ArgumentNullException">data.</exception>
         public static byte[] FromArray(Type type, byte[] data, int index, int count)
         {
             if (data == null)
@@ -91,13 +98,15 @@ namespace Cave
             }
         }
 
-        /// <summary>Obtains the hash code for a specified data string (using UTF-8 encoding)</summary>
+        /// <summary>
+        /// Obtains the hash code for a specified data string (using UTF-8 encoding).
+        /// </summary>
         /// <param name="type">The type.</param>
-        /// <param name="data">The string to hash</param>
-        /// <param name="index">The start index</param>
-        /// <param name="count">The number of chars to hash</param>
-        /// <returns>A new byte[] containing the hash for the specified data</returns>
-        /// <exception cref="System.ArgumentNullException">data</exception>
+        /// <param name="data">The string to hash.</param>
+        /// <param name="index">The start index.</param>
+        /// <param name="count">The number of chars to hash.</param>
+        /// <returns>A new byte[] containing the hash for the specified data.</returns>
+        /// <exception cref="ArgumentNullException">data.</exception>
         public static byte[] FromString(Type type, string data, int index, int count)
         {
             if (data == null)
@@ -108,11 +117,11 @@ namespace Cave
             return FromArray(type, Encoding.UTF8.GetBytes(data.Substring(index, count)));
         }
 
-        /// <summary>Obtains the hash code for a specified data string (using UTF-8 encoding)</summary>
+        /// <summary>Obtains the hash code for a specified data string (using UTF-8 encoding).</summary>
         /// <param name="type">The type.</param>
-        /// <param name="data">The string to hash</param>
-        /// <returns>A new byte[] containing the hash for the specified data</returns>
-        /// <exception cref="System.ArgumentNullException">data</exception>
+        /// <param name="data">The string to hash.</param>
+        /// <returns>A new byte[] containing the hash for the specified data.</returns>
+        /// <exception cref="ArgumentNullException">data.</exception>
         public static byte[] FromString(Type type, string data)
         {
             if (data == null)
@@ -128,9 +137,9 @@ namespace Cave
         /// reading to the end of the stream.
         /// </summary>
         /// <param name="type">The type.</param>
-        /// <param name="stream">The stream to hash</param>
-        /// <returns>A new byte[] containing the hash for the specified data</returns>
-        /// <exception cref="System.ArgumentNullException">stream</exception>
+        /// <param name="stream">The stream to hash.</param>
+        /// <returns>A new byte[] containing the hash for the specified data.</returns>
+        /// <exception cref="ArgumentNullException">stream.</exception>
         public static byte[] FromStream(Type type, Stream stream)
         {
             if (stream == null)

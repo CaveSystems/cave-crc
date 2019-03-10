@@ -58,72 +58,73 @@ namespace Cave
         /// Provides the default polynomial
         /// (*the* standard CRC-32 polynomial, first popularized by Ethernet)
         /// x^32+x^26+x^23+x^22+x^16+x^12+x^11+x^10+x^8+x^7+x^5+x^4+x^2+x^1+x^0
-        /// (little endian value)
+        /// (little endian value).
         /// </summary>
         public static readonly uint DefaultPolynomial = 0x04c11db7;
 
         /// <summary>
-        /// width=32 poly=0x04c11db7 init=0xffffffff refin=true refout=true xorout=0xffffffff check=0xcbf43926 residue=0xdebb20e3 name="CRC-32"
+        /// Gets width=32 poly=0x04c11db7 init=0xffffffff refin=true refout=true xorout=0xffffffff check=0xcbf43926 residue=0xdebb20e3 name="CRC-32".
         /// </summary>
         public static CRC32 Default => new CRC32(poly: DefaultPolynomial, init: 0xFFFFFFFF, finalXor: 0xFFFFFFFF, reflectInput: true, reflectOutput: true, name: "CRC-32");
 
         /// <summary>
-        /// width=32 poly=0xf4acfb13 init=0xffffffff refin=true refout=true xorout=0xffffffff check=0x1697d06a residue=0x904cddbf name="CRC-32/AUTOSAR"
+        /// Gets width=32 poly=0xf4acfb13 init=0xffffffff refin=true refout=true xorout=0xffffffff check=0x1697d06a residue=0x904cddbf name="CRC-32/AUTOSAR".
         /// </summary>
         public static CRC32 AUTOSAR => new CRC32(poly: 0xf4acfb13, init: 0xFFFFFFFF, finalXor: 0xffffffff, reflectInput: true, reflectOutput: true, name: "CRC-32/AUTOSAR");
 
         /// <summary>
-        /// width=32 poly=0x04c11db7 init=0xffffffff refin=false refout=false xorout=0xffffffff check=0xfc891918 residue=0xc704dd7b name="CRC-32/BZIP2"
+        /// Gets width=32 poly=0x04c11db7 init=0xffffffff refin=false refout=false xorout=0xffffffff check=0xfc891918 residue=0xc704dd7b name="CRC-32/BZIP2".
         /// </summary>
         public static CRC32 BZIP2 => new CRC32(poly: DefaultPolynomial, init: 0xFFFFFFFF, finalXor: 0, reflectInput: false, reflectOutput: false, name: "CRC-32/BZIP2");
 
         /// <summary>
-        /// width=32 poly=0x1edc6f41 init=0xffffffff refin=true refout=true xorout=0xffffffff check=0xe3069283 residue=0xb798b438 name="CRC-32C"
+        /// Gets width=32 poly=0x1edc6f41 init=0xffffffff refin=true refout=true xorout=0xffffffff check=0xe3069283 residue=0xb798b438 name="CRC-32C".
         /// </summary>
         public static CRC32 C => new CRC32(poly: 0x1edc6f41, init: 0xFFFFFFFF, finalXor: 0xFFFFFFFF, reflectInput: true, reflectOutput: true, name: "CRC-32C");
 
         /// <summary>
-        /// width=32 poly=0xa833982b init=0xffffffff refin=true refout=true xorout=0xffffffff check=0x87315576 residue=0x45270551 name="CRC-32D"
+        /// Gets width=32 poly=0xa833982b init=0xffffffff refin=true refout=true xorout=0xffffffff check=0x87315576 residue=0x45270551 name="CRC-32D".
         /// </summary>
         public static CRC32 D => new CRC32(poly: 0xa833982b, init: 0xFFFFFFFF, finalXor: 0xFFFFFFFF, reflectInput: true, reflectOutput: true, name: "CRC-32D");
 
         /// <summary>
-        /// width=32 poly=0x04c11db7 init=0xffffffff refin=false refout=false xorout=0x00000000 check=0x0376e6e7 residue=0x00000000 name="CRC-32/MPEG-2"
+        /// Gets width=32 poly=0x04c11db7 init=0xffffffff refin=false refout=false xorout=0x00000000 check=0x0376e6e7 residue=0x00000000 name="CRC-32/MPEG-2".
         /// </summary>
         public static CRC32 MPEG2 => new CRC32(poly: DefaultPolynomial, init: 0xFFFFFFFF, finalXor: 0xFFFFFFFF, reflectInput: false, reflectOutput: false, name: "CRC-32/MPEG-2");
 
         /// <summary>
-        /// width=32 poly=0x04c11db7 init=0x00000000 refin=false refout=false xorout=0xffffffff check=0x765e7680 residue=0xc704dd7b name="CRC-32/POSIX"
+        /// Gets width=32 poly=0x04c11db7 init=0x00000000 refin=false refout=false xorout=0xffffffff check=0x765e7680 residue=0xc704dd7b name="CRC-32/POSIX".
         /// </summary>
         public static CRC32 POSIX => new CRC32(poly: DefaultPolynomial, init: 0x00000000, finalXor: 0xFFFFFFFF, reflectInput: false, reflectOutput: false, name: "CRC-32/POSIX");
 
         /// <summary>
-        /// Alias for <see cref="POSIX"/>
+        /// Gets alias for <see cref="POSIX"/>.
         /// </summary>
         public static CRC32 CKSUM => POSIX;
 
         /// <summary>
-        /// width=32 poly=0x814141ab init=0x00000000 refin=false refout=false xorout=0x00000000 check=0x3010bf7f residue=0x00000000 name="CRC-32Q"
+        /// Gets width=32 poly=0x814141ab init=0x00000000 refin=false refout=false xorout=0x00000000 check=0x3010bf7f residue=0x00000000 name="CRC-32Q".
         /// </summary>
         public static CRC32 Q => new CRC32(poly: 0x814141ab, init: 0x00000000, finalXor: 0x00000000, reflectInput: false, reflectOutput: false, name: "CRC-32Q");
 
-        /// <summary>Reflects 32 bits</summary>
-        /// <param name="x">The bits</param>
-        /// <returns>Returns a center reflection</returns>
+        /// <summary>Reflects 32 bits.</summary>
+        /// <param name="x">The bits.</param>
+        /// <returns>Returns a center reflection.</returns>
         public static uint Reflect32(uint x)
         {
-            //move bits
+            // move bits
             x = ((x & 0x55555555) << 1) | ((x >> 1) & 0x55555555);
             x = ((x & 0x33333333) << 2) | ((x >> 2) & 0x33333333);
             x = ((x & 0x0F0F0F0F) << 4) | ((x >> 4) & 0x0F0F0F0F);
-            //move bytes
+
+            // move bytes
             x = (x << 24) | ((x & 0xFF00) << 8) | ((x >> 8) & 0xFF00) | (x >> 24);
             return x;
         }
 
         #region private funtionality
-        uint m_CurrentCRC;
-        uint[] m_Table;
+        uint currentCRC;
+        uint[] table;
 
         /// <summary>Calculates the table.</summary>
         /// <returns></returns>
@@ -151,7 +152,7 @@ namespace Cave
                 }
                 table[i] = crc;
             }
-            m_Table = table;
+            this.table = table;
         }
 
         private void CalculateReflectedTable()
@@ -165,7 +166,7 @@ namespace Cave
                 {
                     for (uint n = 0; n < 8; n++)
                     {
-                        if (0 != (crc & 1))
+                        if ((crc & 1) != 0)
                         {
                             crc = (crc >> 1) ^ poly;
                         }
@@ -177,49 +178,49 @@ namespace Cave
                 }
                 table[i] = crc;
             }
-            m_Table = table;
+            this.table = table;
         }
         #endregion
 
-        /// <summary>The polynomial used to generate the table</summary>
+        /// <summary>The polynomial used to generate the table.</summary>
         public readonly uint Polynomial;
 
-        /// <summary>The initializer value</summary>
+        /// <summary>The initializer value.</summary>
         public readonly uint Initializer;
 
-        /// <summary>The final xor value</summary>
+        /// <summary>The final xor value.</summary>
         public readonly uint FinalXor;
 
-        /// <summary>The reflect input flag</summary>
+        /// <summary>The reflect input flag.</summary>
         public readonly bool ReflectInput;
 
-        /// <summary>The reflect output flag</summary>
+        /// <summary>The reflect output flag.</summary>
         public readonly bool ReflectOutput;
 
-        /// <summary>The name of the hash</summary>
+        /// <summary>The name of the hash.</summary>
         public readonly string Name;
 
         /// <summary>Gets the lookup table.</summary>
         /// <value>The table.</value>
-        public uint[] Table { get { return (uint[])m_Table.Clone(); } }
+        public uint[] Table => (uint[])table.Clone();
 
-        /// <summary>Returns the checksum computed so far.</summary>
+        /// <summary>Gets or sets the checksum computed so far.</summary>
         public uint Value
         {
             get
             {
                 if (ReflectOutput)
                 {
-                    return m_CurrentCRC ^ FinalXor;
+                    return currentCRC ^ FinalXor;
                 }
                 else
                 {
-                    return ~m_CurrentCRC ^ FinalXor;
+                    return ~currentCRC ^ FinalXor;
                 }
             }
             set
             {
-                m_CurrentCRC = value;
+                currentCRC = value;
             }
         }
 
@@ -232,15 +233,10 @@ namespace Cave
         /// Gets the value of the computed hash code.
         /// </summary>
 #if !NETSTANDARD13 && !NETCOREAPP10
-        override
+        public override byte[] Hash => BitConverter.GetBytes(Value);
+#else
+        public byte[] Hash => BitConverter.GetBytes(Value);
 #endif
-        public byte[] Hash
-		{
-			get
-            {
-                return BitConverter.GetBytes(Value);
-            }
-        }
 
         /// <summary>Initializes a new instance of the <see cref="CRC32"/> class.</summary>
         /// <param name="blueprint">The blueprint to copy all properties from.</param>
@@ -258,12 +254,12 @@ namespace Cave
             }
 
             Name = blueprint.Name;
-            m_Table = blueprint.m_Table;
-            m_CurrentCRC = Initializer;
+            table = blueprint.table;
+            currentCRC = Initializer;
         }
 
         /// <summary>
-        /// Creates a new CRC32 with the <see cref="DefaultPolynomial"/>
+        /// Creates a new CRC32 with the <see cref="DefaultPolynomial"/>.
         /// </summary>
         public CRC32()
             : this(poly: DefaultPolynomial, init: 0xFFFFFFFF, reflectInput: true, reflectOutput: true, finalXor: 0xffffffff, name: "CRC-32")
@@ -271,7 +267,7 @@ namespace Cave
         }
 
         /// <summary>
-        /// Creates a new CRC32 with the specified polynomial
+        /// Creates a new CRC32 with the specified polynomial.
         /// </summary>
         /// <param name="poly">The polynom.</param>
         /// <param name="init">The initialize value.</param>
@@ -300,37 +296,37 @@ namespace Cave
             {
                 CalculateTable();
             }
-            m_CurrentCRC = Initializer;
+            currentCRC = Initializer;
         }
 
         /// <summary>
-        /// (Re-)initializes the <see cref="CRC32"/>
+        /// (Re-)initializes the <see cref="CRC32"/>.
         /// </summary>
         public override void Initialize()
         {
-            m_CurrentCRC = Initializer;
+            currentCRC = Initializer;
         }
 
         /// <summary>
-        /// directly hashes one byte
+        /// directly hashes one byte.
         /// </summary>
         /// <param name="b"></param>
         public void HashCore(byte b)
         {
             if (ReflectInput)
             {
-                uint i = (m_CurrentCRC ^ b) & 0xFF;
-                m_CurrentCRC = (m_CurrentCRC >> 8) ^ m_Table[i];
+                uint i = (currentCRC ^ b) & 0xFF;
+                currentCRC = (currentCRC >> 8) ^ table[i];
             }
             else
             {
-                uint i = ((m_CurrentCRC >> 24) ^ b) & 0xFF;
-                m_CurrentCRC = unchecked((m_CurrentCRC << 8) ^ m_Table[i]);
+                uint i = ((currentCRC >> 24) ^ b) & 0xFF;
+                currentCRC = unchecked((currentCRC << 8) ^ table[i]);
             }
         }
 
         /// <summary>
-        /// Computes the hash for the specified data. 
+        /// Computes the hash for the specified data.
         /// </summary>
         /// <param name="array"></param>
         /// <param name="ibStart"></param>
@@ -357,7 +353,7 @@ namespace Cave
             return BitConverter.GetBytes(Value);
         }
 
-        /// <summary>Resets the checksum to initialization state</summary>
+        /// <summary>Resets the checksum to initialization state.</summary>
         public void Reset()
         {
             Initialize();
@@ -371,7 +367,7 @@ namespace Cave
         }
 
         /// <summary>Updates the checksum with the specified byte array.</summary>
-        /// <param name="buffer">The buffer containing the data</param>
+        /// <param name="buffer">The buffer containing the data.</param>
         public void Update(byte[] buffer)
         {
             if (buffer == null)
@@ -383,8 +379,8 @@ namespace Cave
         }
 
         /// <summary>Updates the checksum with the specified byte array.</summary>
-        /// <param name="buffer">The buffer containing the data</param>
-        /// <param name="offset">The offset in the buffer where the data starts</param>
+        /// <param name="buffer">The buffer containing the data.</param>
+        /// <param name="offset">The offset in the buffer where the data starts.</param>
         /// <param name="count">the number of data bytes to add.</param>
         public void Update(byte[] buffer, int offset, int count)
         {
