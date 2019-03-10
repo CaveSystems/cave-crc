@@ -1,9 +1,9 @@
-﻿using System.Text;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using NUnit.Framework;
+using System.Text;
 
 namespace Cave.CRC.Tests
 {
-    [TestClass]
+    [TestFixture]
     public class TestCRC32
     {
         readonly static uint[] crc32a_table = {
@@ -126,7 +126,7 @@ namespace Cave.CRC.Tests
             Assert.AreEqual(value, crc.Value);
         }
 
-        [TestMethod]
+        [Test]
         public void Test_CRC32_Check()
         {
             uint u = CRC32.Reflect32(0x8F4F8040);

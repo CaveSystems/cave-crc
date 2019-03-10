@@ -1,9 +1,9 @@
-﻿using System.Text;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using NUnit.Framework;
+using System.Text;
 
 namespace Cave.CRC.Tests
 {
-    [TestClass]
+    [TestFixture]
     public class TestCRC64
     {
         readonly byte[] test0 = Encoding.ASCII.GetBytes("123456789");
@@ -52,7 +52,7 @@ namespace Cave.CRC.Tests
             Assert.AreEqual(value, crc.Value, "Test crc {0} invalid result {1:x2} expected {2:x2}!", crc, crc.Value, value);
         }
 
-        [TestMethod]
+        [Test]
         public void Test_CRC64_Check()
         {
             ulong u = CRC64.Reflect64(0x8F4F2F1F80402010);
