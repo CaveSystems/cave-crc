@@ -50,6 +50,7 @@ namespace Cave
     /// <summary>
     /// Interface to compute checksums on bytes/byte arrays.
     /// </summary>
+    /// <typeparam name="T">Type of byte array.</typeparam>
     public interface IChecksum<T>
     {
         /// <summary>

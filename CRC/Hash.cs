@@ -3,6 +3,7 @@ using System.IO;
 using System.Security.Cryptography;
 using System.Text;
 
+#pragma warning disable SA1204 // StaticElementsMustAppearBeforeInstanceElements
 namespace Cave
 {
     /// <summary>
@@ -43,7 +44,7 @@ namespace Cave
         /// <summary>Creates a hash of the specified type.</summary>
         /// <param name="type">The type.</param>
         /// <returns>Returns a new HashAlgorithm instance.</returns>
-        /// <exception cref="NotImplementedException"></exception>
+        /// <exception cref="NotImplementedException">Throws an exeption if hash type is unknown.</exception>
         public static HashAlgorithm Create(Type type)
         {
             switch (type)
@@ -154,3 +155,4 @@ namespace Cave
         }
     }
 }
+#pragma warning restore SA1204 // StaticElementsMustAppearBeforeInstanceElements

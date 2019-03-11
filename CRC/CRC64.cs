@@ -94,7 +94,6 @@ namespace Cave
         ulong[] table;
 
         /// <summary>Calculates the table.</summary>
-        /// <returns></returns>
         protected void CalculateTable()
         {
             ulong[] table = new ulong[256];
@@ -139,7 +138,7 @@ namespace Cave
                         }
                         else
                         {
-                            crc = (crc >> 1);
+                            crc = crc >> 1;
                         }
                     }
                 }
@@ -200,7 +199,7 @@ namespace Cave
 
         /// <summary>Initializes a new instance of the <see cref="CRC64"/> class.</summary>
         /// <param name="blueprint">The blueprint to copy all properties from.</param>
-        /// <exception cref="NotImplementedException"></exception>
+        /// <exception cref="NotImplementedException">Throws an error if reflection is uneven.</exception>
         public CRC64(CRC64 blueprint)
         {
             Polynomial = blueprint.Polynomial;
@@ -219,6 +218,7 @@ namespace Cave
         }
 
         /// <summary>
+        /// Initializes a new instance of the <see cref="CRC64"/> class.
         /// Creates a new CRC64.XZ:
         /// width=64 poly=0x42f0e1eba9ea3693 init=0xffffffffffffffff refin=true refout=true xorout=0xffffffffffffffff check=0x995dc9bbdf1939fa residue=0x49958c9abd7d353f name="CRC-64/XZ".
         /// </summary>
@@ -227,7 +227,8 @@ namespace Cave
         {
         }
 
-        /// <summary>Creates a new CRC64 with the specified polynomial.</summary>
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CRC64"/> class.</summary>
         /// <param name="poly">The polynom.</param>
         /// <param name="init">The initialize value.</param>
         /// <param name="reflectInput">if set to <c>true</c> [reflect input value] first.</param>
@@ -269,7 +270,7 @@ namespace Cave
         /// <summary>
         /// directly hashes one byte.
         /// </summary>
-        /// <param name="b"></param>
+        /// <param name="b">The byte.</param>
         public void HashCore(byte b)
         {
             if (ReflectInput)
@@ -289,9 +290,9 @@ namespace Cave
         /// <see cref="CRC64"/> first and call <see cref="HashFinal"/> afterwards to obtain the
         /// full hash code.
         /// </summary>
-        /// <param name="array"></param>
-        /// <param name="ibStart"></param>
-        /// <param name="cbSize"></param>
+        /// <param name="array">Array of bytes to hash.</param>
+        /// <param name="ibStart">Start index of data.</param>
+        /// <param name="cbSize">Size of data in bytes.</param>
         protected override void HashCore(byte[] array, int ibStart, int cbSize)
         {
             if (array == null)
@@ -308,7 +309,7 @@ namespace Cave
         /// <summary>
         /// Finalizes the hash computation obtains the resulting hash code in the systems byte order.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Byte array of the hash.</returns>
         protected override byte[] HashFinal()
         {
             return BitConverter.GetBytes(Value);

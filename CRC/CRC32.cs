@@ -127,7 +127,6 @@ namespace Cave
         uint[] table;
 
         /// <summary>Calculates the table.</summary>
-        /// <returns></returns>
         protected void CalculateTable()
         {
             uint[] table = new uint[256];
@@ -172,7 +171,7 @@ namespace Cave
                         }
                         else
                         {
-                            crc = (crc >> 1);
+                            crc = crc >> 1;
                         }
                     }
                 }
@@ -240,7 +239,7 @@ namespace Cave
 
         /// <summary>Initializes a new instance of the <see cref="CRC32"/> class.</summary>
         /// <param name="blueprint">The blueprint to copy all properties from.</param>
-        /// <exception cref="NotImplementedException"></exception>
+        /// <exception cref="NotImplementedException">Throws an error if reflection is uneven.</exception>
         public CRC32(CRC32 blueprint)
         {
             Polynomial = blueprint.Polynomial;
@@ -259,7 +258,7 @@ namespace Cave
         }
 
         /// <summary>
-        /// Creates a new CRC32 with the <see cref="DefaultPolynomial"/>.
+        /// Initializes a new instance of the <see cref="CRC32"/> class.
         /// </summary>
         public CRC32()
             : this(poly: DefaultPolynomial, init: 0xFFFFFFFF, reflectInput: true, reflectOutput: true, finalXor: 0xffffffff, name: "CRC-32")
@@ -267,7 +266,7 @@ namespace Cave
         }
 
         /// <summary>
-        /// Creates a new CRC32 with the specified polynomial.
+        /// Initializes a new instance of the <see cref="CRC32"/> class.
         /// </summary>
         /// <param name="poly">The polynom.</param>
         /// <param name="init">The initialize value.</param>
@@ -310,7 +309,7 @@ namespace Cave
         /// <summary>
         /// directly hashes one byte.
         /// </summary>
-        /// <param name="b"></param>
+        /// <param name="b">The byte.</param>
         public void HashCore(byte b)
         {
             if (ReflectInput)
@@ -328,9 +327,9 @@ namespace Cave
         /// <summary>
         /// Computes the hash for the specified data.
         /// </summary>
-        /// <param name="array"></param>
-        /// <param name="ibStart"></param>
-        /// <param name="cbSize"></param>
+        /// <param name="array">Array of bytes to hash.</param>
+        /// <param name="ibStart">Start index of data.</param>
+        /// <param name="cbSize">Size of data in bytes.</param>
         protected override void HashCore(byte[] array, int ibStart, int cbSize)
         {
             if (array == null)
@@ -345,9 +344,9 @@ namespace Cave
         }
 
         /// <summary>
-        /// Finalizes the hash computation obtains the resulting hash code in the systems byte order.
+        /// Finalizes the hash computation, gets the resulting hash code in the systems byte order.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Byte array of the hash.</returns>
         protected override byte[] HashFinal()
         {
             return BitConverter.GetBytes(Value);
